@@ -1,0 +1,9 @@
+.footbar{
+    height: 20px;
+    width: 100%;
+    background-color: lightseagreen;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+}

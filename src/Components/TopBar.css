@@ -1,0 +1,9 @@
+.topper{
+    height: 30px;
+    width: 100%;
+    background-color: #28465E;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+}
