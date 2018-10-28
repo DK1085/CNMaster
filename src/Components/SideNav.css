@@ -4,3 +4,15 @@
     left: 0;
     position: relative;
 }
+
+.imgHighlighted {
+    background-color: #1F374A;
+}
+
+.imgUnhighlighted{
+    background-color: #28465E;
+}
+
+.up{
+    margin-top: 30px;
+}

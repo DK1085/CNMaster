@@ -16,28 +16,63 @@ class sidenav extends Component {
                  {id: "projects", background: "#28465E", src: require('../Assets/icons/portfolio.png')},
                  {id: "challenges", background: "#28465E", src: require('../Assets/icons/podium.png')} ],
 
-            }
+            };
+
+      
+            toggleHighlightHandler = (iconIndex) => {
+
+                //copy array from initial state
+                let imgBack = [...this.state.icons];
+
+                //handles the item being clicked
+               if (imgBack[iconIndex].background === "#28465E"){
+                   imgBack[iconIndex].background = "#1F374A"
+
+               }
+            /* handles the items not being clicked - changes the background back to default by comparing the index of the item
+            clicked to all the other indexes in the array. if they are different to the one clicked it sets the background
+            back */
 
             
-            toggleHighlightHandler = () => {
-                if (this.state.icons.background === "#1F374A"){
-                    this.setState({background: "#FFFFFF"})
-                }
-                else {
-                    this.setState({background: "#1F374A"})
-                }
-            }
+               imgBack.map((arra, index) => {
+                    if (index !== iconIndex){
+                        imgBack[index].background = "#28465E";
+                    }
+                  
+            })
+
+                    //set copied state array as new state
+                   this.setState({icons: imgBack})
+
+                   
+                   
+               }
+               
+               
+               
+            
+          
+            
 
     render(){
-
+        
         let icons = (
             <div>
               {this.state.icons.map((myArray, index) => {
-                  
+                  let style = {
+                    backgroundColor: myArray.background,
+                    
+                    
+                }
+
                 return<IconsList
-                click={() => this.toggleHighlightHandler()} 
+                click={() => this.toggleHighlightHandler(index)} 
                 backgroundType={myArray.background}
-                src={myArray.src}/>
+                src={myArray.src}
+                style={style}
+                />
+                
+                
                 
               })}
               </div>
@@ -45,8 +80,9 @@ class sidenav extends Component {
 
         return (
             <div className={classes.farleft}>
+            <div className={classes.up}>
                 {icons}
-        
+            </div>
 
             </div>
 

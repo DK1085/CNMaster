@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.css';
+import classes from './App.css';
 import SideNav from './Components/SideNav';
 import SideBar from './Components/SideBar';
 import TopBar from './Components/TopBar';
@@ -10,9 +10,9 @@ import Mainblock from './Components/Mainblock';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className={classes.App}>
       <TopBar />
-      <div className="content">
+      <div className={classes.content}>
       <SideNav />
       <SideBar />
       <Mainblock />

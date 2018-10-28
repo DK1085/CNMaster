@@ -1,8 +1,8 @@
 import React from 'react';
-import './Mainblock.css';
+import classes from './Mainblock.css';
 
 const mainSection = () => {
-    return <div className="mainstuff">
+    return <div className={classes.mainstuff}>
     
     
     </div>

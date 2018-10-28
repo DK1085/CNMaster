@@ -1,8 +1,8 @@
 import React from 'react';
-import './Foot.css';
+import classes from './Foot.css';
 
 const footer = () => {
-    return <div className="footbar">
+    return <div className={classes.footbar}>
         
     
     </div>

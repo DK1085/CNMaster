@@ -1,8 +1,8 @@
 import React from 'react';
-import './TopBar.css';
+import classes from './TopBar.css';
 
 const topbar = () => {
-    return <div className="topper">
+    return <div className={classes.topper}>
         
     
     </div>
