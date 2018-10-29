@@ -8,3 +8,12 @@
     position: fixed;
     box-shadow:  0px 0.2px 0.3px #20394c;
 }
+
+.headings{
+    margin-left: 50px;
+    margin-top: 0;
+    padding-top: 8px;
+    color: whitesmoke;
+    font-family: sans-serif;
+    font-size: 80%;
+}

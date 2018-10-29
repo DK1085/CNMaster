@@ -7,13 +7,13 @@
 .iconz img{
     padding-top: 15px;
     padding-bottom: 15px;
-    height: 25px;
+    height: 20px;
    
 }
 
 .box {
-    
-    box-shadow:  0.1px 1px 0.3px inset #20394c;
+    border-radius: 10px 0px 0px 10px;
+    /*box-shadow:  0.1px 1px 0.3px inset #20394c;*/
     
     
 }

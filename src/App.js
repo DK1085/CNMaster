@@ -1,19 +1,90 @@
 import React, { Component } from 'react';
-
 import classes from './App.css';
 import SideNav from './Components/SideNav';
 import SideBar from './Components/SideBar';
 import TopBar from './Components/TopBar';
 import Foot from './Components/Foot';
 import Mainblock from './Components/Mainblock';
+import IconsList from './Components/Iconslist';
+
 
 class App extends Component {
+
+  state = {
+    icons: [ {id: "home", background: "#1F374A", src: require('./Assets/icons/house.png')},
+             {id: "profile", background: "#182C3A", src: require('./Assets/icons/user.png')},
+             {id: "folder", background: "#182C3AE", src: require('./Assets/icons/folder.png')},
+             {id: "projects", background: "#182C3A", src: require('./Assets/icons/portfolio.png')},
+             {id: "challenges", background: "#182C3A", src: require('./Assets/icons/podium.png')} ],
+
+    headings: [ "HOME", "NETWORK", "RESOURCES", "PROJECTS", "CHALLENGES" ]
+        };
+
+        toggleHighlightHandler = (iconIndex) => {
+
+          //copy array from initial state
+          let imgBack = [...this.state.icons];
+
+          //handles the item being clicked
+         if (imgBack[iconIndex].background === "#182C3A"){
+             imgBack[iconIndex].background = "#1F374A"
+
+         }
+      /* handles the items not being clicked - changes the background back to default by comparing the index of the item
+      clicked to all the other indexes in the array. if they are different to the one clicked it sets the background
+      back */
+
+      
+         imgBack.map((arra, index) => {
+              if (index !== iconIndex){
+                  imgBack[index].background = "#182C3A";
+              }
+            
+      })
+
+              //set copied state array as new state
+             this.setState({icons: imgBack})
+
+             
+             
+         }
+         
+         
+         
+      
+    
+      
+  
   render() {
+
+    let icons = (
+      <div>
+        {this.state.icons.map((myArray, index) => {
+            let style = {
+              backgroundColor: myArray.background,
+              
+              
+          }
+
+          return<IconsList
+          click={() => this.toggleHighlightHandler(index)} 
+          src={myArray.src}
+          style={style}
+          />
+          
+          
+          
+        })}
+        </div>
+  )
+
     return (
       <div className={classes.App}>
-      <TopBar />
+      <TopBar header={this.state.headings[3]}/>
       <div className={classes.content}>
-      <SideNav />
+      <SideNav>
+        {icons}
+      </SideNav>
       <SideBar />
       <Mainblock />
      </div>
