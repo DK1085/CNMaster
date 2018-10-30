@@ -1,9 +1,8 @@
 import React from 'react';
 import classes from './TopBar.css';
 
-const topbar = (props) => {
+const topbar = () => {
     return <div className={classes.topper}>
-        <p className={classes.headings}>{props.header}</p>
     
     </div>
 };
