@@ -2,14 +2,14 @@
     width: 300px;
     background-color: #1F374A;
     left: 0;
-    transition: all 1s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .secondLeftProfile{
     width: 600px;
     background-color: #1F374A;
     left: 0;
-    transition: all 1s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .headings{
@@ -25,5 +25,21 @@
 .headingBox{
     text-align: center;
     border-bottom: 0.5px solid #abafb5;
+    
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.intro{
+    font-family: 'Gilroy-Light';
+    color: #abafb5;
+    padding-left: 10px;
+    padding-right: 10px;
+    
     
 }

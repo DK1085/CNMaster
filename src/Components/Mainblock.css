@@ -1,5 +1,33 @@
 .mainstuff{
+    display:flex;
     width: 100%;
+    padding: 0;
     background-color:#182C3A;
     box-shadow:  1px 0px 0.3px inset #11212b;
+}
+
+.row1{
+    display:flex;
+    width: 100%;
+    background-image: url('../Assets/icons/unnamed.jpg');
+    background-size: cover;
+    max-height: 400px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 40px;
+    border-radius: 10px;
+    
+    
+    
+}
+
+.row1 p{
+    font-size: 700%;
+    color: white;
+    font-family: 'Gilroy-Light';
+    font-weight: bold;
+    margin-top:70px;
+    padding-left: 30px;
+    line-height: 90px;
+    
 }
