@@ -11,17 +11,21 @@ import CompiledIcons from './Components/IconsCompiled';
 class Main extends Component {
 
   state = {
-    icons: [ {id: "HOME", background: "#1F374A", src: require('./Assets/icons/house.png')},
+    icons: [ {id: "HOME", background: "#1F374A", src: require('./Assets/icons/home.png')},
              {id: "PROFILE & NETWORK", background: "#182C3A", src: require('./Assets/icons/user.png')},
              {id: "COURSE CONTENT", background: "#182C3A", src: require('./Assets/icons/language.png')},
              {id: "RESOURCES", background: "#182C3A", src: require('./Assets/icons/folder.png')},
              {id: "PROJECTS", background: "#182C3A", src: require('./Assets/icons/portfolio.png')},
              {id: "CHALLENGES", background: "#182C3A", src: require('./Assets/icons/podium.png')},
              {id: "NEED SOME HELP?", background: "#182C3A", src: require('./Assets/icons/question.png')},
+             {id: "LIVE LEARN", background: "#182C3A", src: require('./Assets/icons/antenna.png')},
              {id: "PLACES TO EAT NEARBY", background: "#182C3A", src: require('./Assets/icons/hamburger.png')} ],
 
     headings: "HOME",
-    secondLeftProfile: false
+    secondLeftProfile: false,
+    homeContent: true,
+    profileContent: false,
+    helpContent: false
         };
 
         expandSideBar = () => {
@@ -59,6 +63,23 @@ class Main extends Component {
            this.reduceSideBar();
          }
 
+         if (imgBack[iconIndex].id !== "HOME"){
+          this.setState({homeContent: false})
+        }else{
+          this.setState({homeContent: true})};
+
+        if (imgBack[iconIndex].id === "PROFILE & NETWORK"){
+          this.setState({profileContent: true})
+        } else  {
+          this.setState({profileContent: false})
+        };
+
+        if (imgBack[iconIndex].id === "NEED SOME HELP?"){
+          this.setState({helpContent: true})
+        } else  {
+          this.setState({helpContent: false})
+        };
+
       /* handles the items not being clicked - changes the background back to default by comparing the index of the item
       clicked to all the other indexes in the array. if they are different to the one clicked it sets the background
       back */
@@ -72,26 +93,9 @@ class Main extends Component {
 
               //set copied state array as new state
              this.setState({icons: imgBack})
-             
-             
-
-
          };
          
-     
-
-         
-      
-    
-      
-  
   render() {
-
-    
-    
-
-
-
 
     let icons = (
       <div>
@@ -112,6 +116,9 @@ class Main extends Component {
          <SideBar
             expand={this.state.secondLeftProfile}
             headers={this.state.headings}
+            homecontent ={this.state.homeContent}
+            profilecontent = {this.state.profileContent}
+            helpcontent = {this.state.helpContent}
           />
          <Mainblock />
      </div>

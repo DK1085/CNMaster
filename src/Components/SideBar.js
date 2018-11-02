@@ -1,5 +1,8 @@
 import React from 'react';
 import classes from './SideBar.css';
+import HomeContent from '../Components/Home/SideBarHome';
+import ProfileContent from '../Components/Profile/SideBarProfile';
+import HelpContent from '../Components/HelpSection/SideBarQuestions';
 
 const sidebar = (props) => {
     const cssClasses = [`${classes.secondLeft}`, props.expand ? `${classes.secondLeftProfile}` : `${classes.secondLeft}`]
@@ -10,13 +13,10 @@ const sidebar = (props) => {
     <p className={classes.headings}>{props.headers}</p>
     </div>
     <div className={classes.mainContainer}>
-    <h3 className={classes.intro}> 
-    Welcome, xxxx. 
-    </h3>
-        <p className={classes.intro}>
-        
-        This learning environment will contain all the curriculum notes, presentations, challenges, projects, and further resources.
-        </p>
+     {props.homecontent ? <HomeContent /> : null}
+     {props.profilecontent ? <ProfileContent /> : null}
+     {props.helpcontent ? <HelpContent /> : null}
+     
     </div>
     </div>
 };

@@ -1,0 +1,80 @@
+.profilePicBox{
+    display: flex;
+    border: 1px solid #abafb5;
+    width: 400px;
+    height: 400px;
+    margin: 10px;
+    border-radius: 5px;
+    justify-content: center;
+    
+    
+    
+}
+
+.profilepicPH{
+    height: 50px;
+    margin-top: 40%;
+}
+
+.nameInfoBox{
+    border-bottom: 0.5px solid #abafb5; 
+}
+
+.nameInfo{
+    color: white;
+    margin: 20px;
+    margin-left: 20px;
+    font-family: 'Gilroy-Light';
+    
+}
+
+.name{
+    margin: 0;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.buttons{
+    
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.editButton {
+    padding: 10px;
+    border-radius: 3px;
+    margin-right: 10px;
+    font-size: 100%;
+    font-family: 'Gilroy-Light';
+    background-color: lightseagreen;
+    border: none;
+}
+
+.moreActions{
+    padding: 10px;
+    border-radius: 3px;
+    width: 60px;
+    font-size: 100%;
+    font-family: 'Gilroy-Light';
+    font-weight: bold;
+    background-color: lightseagreen;
+    border: none;
+}
+
+.info{
+    display: flex;
+    justify-content: space-evenly;
+    color: whitesmoke;
+    padding-left: 20px;
+
+}
+
+.infolist{
+    width: 30%;
+    line-height: 10px;
+}
+
+.infoAnswers{
+    width: 70%;
+    line-height: 10px;
+}

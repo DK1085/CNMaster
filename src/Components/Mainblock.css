@@ -2,19 +2,19 @@
     display:flex;
     width: 100%;
     padding: 0;
-    background-color:#182C3A;
     box-shadow:  1px 0px 0.3px inset #11212b;
+    background-image: linear-gradient(to right, rgba(24,44,58,1)  , rgba(51,39,49,1));
+    
 }
 
 .row1{
     display:flex;
     width: 100%;
-    background-image: url('../Assets/icons/unnamed.jpg');
     background-size: cover;
     max-height: 400px;
     margin-right: 10px;
     margin-left: 10px;
-    margin-top: 40px;
+    margin-top: 10px;
     border-radius: 10px;
     
     
