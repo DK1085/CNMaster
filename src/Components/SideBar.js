@@ -3,6 +3,7 @@ import classes from './SideBar.css';
 import HomeContent from '../Components/Home/SideBarHome';
 import ProfileContent from '../Components/Profile/SideBarProfile';
 import HelpContent from '../Components/HelpSection/SideBarQuestions';
+import CourseContent from '../Components/Course/Weekly';
 
 const sidebar = (props) => {
     const cssClasses = [`${classes.secondLeft}`, props.expand ? `${classes.secondLeftProfile}` : `${classes.secondLeft}`]
@@ -16,6 +17,7 @@ const sidebar = (props) => {
      {props.homecontent ? <HomeContent /> : null}
      {props.profilecontent ? <ProfileContent /> : null}
      {props.helpcontent ? <HelpContent /> : null}
+     {props.weeklist ? <CourseContent /> : null}
      
     </div>
     </div>

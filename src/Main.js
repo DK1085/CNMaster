@@ -25,7 +25,8 @@ class Main extends Component {
     secondLeftProfile: false,
     homeContent: true,
     profileContent: false,
-    helpContent: false
+    helpContent: false,
+    weekList: false
         };
 
         expandSideBar = () => {
@@ -80,6 +81,12 @@ class Main extends Component {
           this.setState({helpContent: false})
         };
 
+        if (imgBack[iconIndex].id === "COURSE CONTENT"){
+          this.setState({weekList: true})
+        } else {
+          this.setState({weekList: false})
+        };
+
       /* handles the items not being clicked - changes the background back to default by comparing the index of the item
       clicked to all the other indexes in the array. if they are different to the one clicked it sets the background
       back */
@@ -119,6 +126,7 @@ class Main extends Component {
             homecontent ={this.state.homeContent}
             profilecontent = {this.state.profileContent}
             helpcontent = {this.state.helpContent}
+            weeklist = {this.state.weekList}
           />
          <Mainblock />
      </div>
