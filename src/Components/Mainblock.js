@@ -7,7 +7,7 @@ const mainSection = () => {
     <p>  Unlike any <br></br> &nbsp; &nbsp; &nbsp;other coding <br></br> school;</p>
         </div>
         <div className={classes.row2}>
-
+        
         </div>
         <div className={classes.row3}>
 

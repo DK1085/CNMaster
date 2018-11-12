@@ -1,18 +1,22 @@
 .secondLeft{
+    
     width: 300px;
     left: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
     background-image:linear-gradient(to left,  rgba(31,55,74, 0.98), rgba(31,55,74, 1));
 }
 
 .secondLeftProfile{
-    width: 500px;
+    width: 450px;
     background-color: #1F374A;
     left: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 
+
+
 .headings{
+    
     margin-top:40px;
     color: whitesmoke;
     font-family: open;
@@ -25,13 +29,33 @@
 .headingBox{
     text-align: center;
     border-bottom: 0.5px solid #abafb5;
+    height: 50px;
     
 }
 
 .mainContainer{
     display: flex;
     flex-direction: column;
-    
-
 }
 
+.popout{
+    display: flex;
+}
+
+.secondLeftpopout{
+    
+    min-width: 300px;
+    margin-left: -25px;
+    animation: slideMe 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    
+    background-color: rgba(40, 120, 126, 1);
+    overflow-y: scroll;
+    
+}
+
+
+@keyframes slideMe {
+    from {width:0px;}
+    to {width: 400px;}
+}

@@ -6,10 +6,15 @@ import TopBar from './Components/TopBar';
 import Foot from './Components/Foot';
 import Mainblock from './Components/Mainblock';
 import CompiledIcons from './Components/IconsCompiled';
+import FullWeekList from './Components/Course/AllWeeks';
+import SecondBar from './Components/Course/SecondSideBar';
+import sideclasses from './Components/SideBar.css'
+
+
+
 
 
 class Main extends Component {
-
   state = {
     icons: [ {id: "HOME", background: "#1F374A", src: require('./Assets/icons/home.png')},
              {id: "PROFILE & NETWORK", background: "#182C3A", src: require('./Assets/icons/user.png')},
@@ -21,13 +26,32 @@ class Main extends Component {
              {id: "LIVE LEARN", background: "#182C3A", src: require('./Assets/icons/antenna.png')},
              {id: "PLACES TO EAT NEARBY", background: "#182C3A", src: require('./Assets/icons/hamburger.png')} ],
 
+    courseButtons : [{title: "Coding Fundamentals & the Principles of Good Technical Design"},
+                  {title: "Front-End Development"},
+                  {title: "Front-End Development"},
+                  {title: "Front-End Development"},
+                  {title: "Front-End Development"},
+                  {title: "Back-End Development"},
+                  {title: "Back-End Development"},
+                  {title: "Back-End Development"},
+                  {title: "Mobile Apps with Swift"},
+                  {title: "Employer Sponsered Final Project"},
+                  {title: "Employer Sponsered Final Project"},
+                  {title: "Employer Sponsered Final Project"}, ],
+
+    daysOfWeek: [{Name: "{Mon}"}, {Name: "{Tues}"},{ Name: "{Weds}"}, {Name:"{Thurs}"},{Name: "{Fri}"}],
+             
     headings: "HOME",
     secondLeftProfile: false,
+    secondLeftpopout: false,
     homeContent: true,
     profileContent: false,
     helpContent: false,
-    weekList: false
-        };
+    weekList: false,
+    showcourse: false,
+    
+  };
+
 
         expandSideBar = () => {
           this.setState({secondLeftProfile: true})
@@ -35,34 +59,49 @@ class Main extends Component {
 
         reduceSideBar = () => {
           this.setState({secondLeftProfile: false})
+          this.setState({secondLeftCourse: false})
         }
 
-        
-        
-        toggleHighlightHandler = (iconIndex) => {
+        expandSideBarMore = () => {
+          this.setState({secondLeftCourse: true})
+        }
+
+
+        toggleCourseHandler = (courseIndex) => {
+          if (this.state.showcourse === false){
+            
+              this.setState({showcourse:  true})
+          } else (
+            this.setState({showcourse: false})
+          )
 
         
+      }
+      
+
+        // ----------------------------- Start of toggleHighlightHandler function ------------------------------------------------
+        
+        toggleHighlightHandler = (iconIndex) => {
           //copy array from initial state
           let imgBack = [...this.state.icons];
           let headingIndex = this.state.headings;
           
-          
-          
+
           //handles the item being clicked
          if (imgBack[iconIndex].background === "#182C3A"){
              imgBack[iconIndex].background = "#1F374A";
              headingIndex = imgBack[iconIndex].id;
-          
              this.setState({headings: headingIndex})
+             this.setState({showcourse: false})
          }
       
          if (iconIndex === 1){
            this.expandSideBar();
-         } else if (iconIndex === 6){
+        } else if (iconIndex === 6){
           this.expandSideBar();
         } else {
            this.reduceSideBar();
-         }
+        }
 
          if (imgBack[iconIndex].id !== "HOME"){
           this.setState({homeContent: false})
@@ -85,6 +124,7 @@ class Main extends Component {
           this.setState({weekList: true})
         } else {
           this.setState({weekList: false})
+          
         };
 
       /* handles the items not being clicked - changes the background back to default by comparing the index of the item
@@ -95,43 +135,46 @@ class Main extends Component {
               if (index !== iconIndex){
                   imgBack[index].background = "#182C3A";
               }
-            
       })
-
-              //set copied state array as new state
+             //set copied state array as new state
              this.setState({icons: imgBack})
          };
+
+         // ----------------------------- End of toggleHighlightHandler function ------------------------------------------------
          
   render() {
 
     let icons = (
       <div>
         <CompiledIcons 
-        clicked = {this.toggleHighlightHandler}
-        icons = {this.state.icons}
+          clicked = {this.toggleHighlightHandler}
+          icons = {this.state.icons}
         />
-        </div>
-  )
+      </div>
+    )
+  
 
     return (
       <div className={classes.Main}>
-         <TopBar/>
-      <div className={classes.content}>
-         <SideNav>
+        <TopBar/>
+        <div className={classes.content}>
+          <SideNav>
             {icons}
-         </SideNav>
-         <SideBar
+          </SideNav>
+          <SideBar 
             expand={this.state.secondLeftProfile}
             headers={this.state.headings}
             homecontent ={this.state.homeContent}
             profilecontent = {this.state.profileContent}
             helpcontent = {this.state.helpContent}
             weeklist = {this.state.weekList}
+            clicker = {this.toggleCourseHandler}
           />
-         <Mainblock />
-     </div>
+          {this.state.showcourse ? <SecondBar weekday={this.state.daysOfWeek} weektitles={this.state.courseButtons[6].title}/> : null}
+       
+          <Mainblock />
+      </div>
          <Foot />
-         
       </div>
     );
   }
